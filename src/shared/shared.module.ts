@@ -17,10 +17,10 @@ import { TokenService } from './services/token.service'
     AccessTokenGuard,
     {
       provide: 'APP_GUARD',
-      useClass: AuthenticationGuard,
-    },
+      useClass: AuthenticationGuard
+    }
   ],
   exports: [PrismaService, HashingService, TokenService],
-  imports: [JwtModule],
+  imports: [JwtModule]
 })
 export class SharedModule {}

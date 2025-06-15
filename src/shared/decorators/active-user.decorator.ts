@@ -1,5 +1,5 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common'
-import { REQUEST_USER_KEY } from 'src/shared/constants/auth.constant'
+import { REQUEST_USER_KEY } from '../constants/auth.constant'
 import { TokenPayload } from '../types/jwt.type'
 
 export const ActiveUser = createParamDecorator((field: keyof TokenPayload | undefined, ctx: ExecutionContext) => {

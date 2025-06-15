@@ -11,7 +11,7 @@ export class TokenService {
       secret: envConfig.ACCESS_TOKEN_SECRET,
       expiresIn: envConfig.ACCESS_TOKEN_EXPIRES_IN,
       algorithm: 'HS256',
-      jwtid: crypto.randomUUID(),
+      jwtid: crypto.randomUUID()
     })
   }
   async signRefreshToken(payload: { userId: number }): Promise<string> {
@@ -19,17 +19,17 @@ export class TokenService {
       secret: envConfig.REFRESH_TOKEN_SECRET,
       expiresIn: envConfig.REFRESH_TOKEN_EXPIRES_IN,
       algorithm: 'HS256',
-      jwtid: crypto.randomUUID(),
+      jwtid: crypto.randomUUID()
     })
   }
   async verifyAccessToken(token: string): Promise<TokenPayload> {
     return this.jwtService.verifyAsync(token, {
-      secret: envConfig.ACCESS_TOKEN_SECRET,
+      secret: envConfig.ACCESS_TOKEN_SECRET
     })
   }
   async verifyRefreshToken(token: string): Promise<TokenPayload> {
     return this.jwtService.verifyAsync(token, {
-      secret: envConfig.REFRESH_TOKEN_SECRET,
+      secret: envConfig.REFRESH_TOKEN_SECRET
     })
   }
 }
