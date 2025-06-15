@@ -28,12 +28,10 @@ export class AuthenticationGuard implements CanActivate {
       options: { condition: ConditionGuard.AND }
     }
     const { authType, options } = metadata
-    let error = new UnauthorizedException()
     const guards = authType.map((item) => this.authTypeGuardMap[item])
     if (options?.condition === ConditionGuard.OR) {
       for (const instance of guards) {
-        const canActivate = await Promise.resolve(instance.canActivate(context)).catch((err) => {
-          error = err
+        const canActivate = await Promise.resolve(instance.canActivate(context)).catch(() => {
           return false
         })
         if (canActivate) {
@@ -43,8 +41,7 @@ export class AuthenticationGuard implements CanActivate {
       throw new UnauthorizedException()
     } else {
       for (const instance of guards) {
-        const canActivate = await Promise.resolve(instance.canActivate(context)).catch((err) => {
-          error = err
+        const canActivate = await Promise.resolve(instance.canActivate(context)).catch(() => {
           return false
         })
         if (!canActivate) {

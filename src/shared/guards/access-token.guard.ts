@@ -17,7 +17,7 @@ export class AccessTokenGuard implements CanActivate {
       request[REQUEST_USER_KEY] = decodedAccessToken
       return true
     } catch (error) {
-      throw new UnauthorizedException()
+      throw new UnauthorizedException(error)
     }
   }
 }
