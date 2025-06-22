@@ -28,6 +28,7 @@ export default [
       '@typescript-eslint/no-var-requires': 'error',
       '@typescript-eslint/no-inferrable-types': 'warn',
       '@typescript-eslint/no-unused-vars': 'error',
+      '@typescript-eslint/explicit-function-return-type': 'off',
       'no-console': 'error',
       'no-duplicate-imports': 'error',
       'prefer-const': 'error',
