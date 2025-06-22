@@ -33,7 +33,6 @@ export class AuthService {
           roleId: roleClientId
         },
         omit: {
-          password: true,
           totpSecret: true
         }
       })
